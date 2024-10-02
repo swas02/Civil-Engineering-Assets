@@ -7,102 +7,7 @@
     <title>Civil Engineering Assets</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <style>
-        body {
-            padding: 10px;
-            font-family: 'Arial', sans-serif;
-            background-color: #454647; /* Darker background */
-            color: #e0e0e0; /* Light text */
-            line-height: 1.6;
-            font-size: 18px; /* Increased font size for better readability */
-        }
-
-        .section {
-            background-color: #343535; /* Darker section background */
-            border-radius: 10px;
-            padding: 30px; /* More padding for better spacing */
-            padding-bottom: 60px;
-            margin-bottom: 30px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        h1, h2 {
-            margin-top: 20px;
-            color: #81c784; /* Lighter green for headings */
-        }
-
-        pre {
-            background-color: #2a2a2a; /* Code block background */
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            border-left: 4px solid #81c784; /* Highlighted border */
-            margin: 10px 0;
-            font-size: 1.1em; /* Increased font size for code */
-        }
-
-        code {
-            color: #ffcc00; /* Yellow for code */
-        }
-
-        a {
-            color: #81c784; /* Link color */
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-            color: #66bb6a; /* Darker green on hover */
-        }
-
-        .more-content {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .show-more {
-            background-color: #81c784; /* Button color */
-            color: black;
-            border: none;
-            padding: 12px 20px; /* More padding for the button */
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: block;
-            margin: 20px auto; /* Center button */
-            font-size: 1.2em; /* Increased button text size */
-        }
-
-        .show-more:hover {
-            background-color: #66bb6a; /* Darker green on hover */
-        }
-
-        .icon {
-            cursor: pointer;
-            padding: 0 10px;
-            color: #81c784; /* Copy icon color */
-            margin-left: 10px;
-            font-size: 1.5em; /* Increased icon size */
-            float: right; /* Float the icon to the right */
-            transition: transform 0.3s; /* Smooth rotation transition */
-        }
-
-        .icon.rotated {
-            transform: rotate(180deg); /* Rotate the icon */
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .section {
-                padding: 20px; /* Reduce padding on small screens */
-            }
-
-            .show-more {
-                font-size: 1em; /* Smaller button text on mobile */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -112,7 +17,7 @@
     <section class="section" id="library1">
         <h2>Shear Strength Values of Concrete (IS 456:2000 Table 19)</h2>
         <p>
-            The <code>ShearStrengthCalculator</code> is developed in accordance with IS 456:2000, the Indian Standard for Plain and Reinforced Concrete.
+            The <code>ConcreteShearStrengthLookup</code> is developed in accordance with IS 456:2000, the Indian Standard for Plain and Reinforced Concrete.
         </p>
         
         <span class="icon toggle" onclick="toggleContent('moreContent1', this)" title="See more">
@@ -131,7 +36,7 @@
             <ol>
                 <li>
                     <strong>Create an Instance:</strong>
-                    <pre><code>const calculator = new ShearStrengthCalculator();</code></pre>
+                    <pre><code>const calculator = new ConcreteShearStrengthLookup();</code></pre>
                 </li>
                 <li>
                     <strong>Calculate Shear Strength:</strong>
@@ -152,6 +57,52 @@
             <p>
                 For comprehensive instructions, refer to the
                 <a href="https://github.com/swas02/Civil-Engineering-Assets/blob/main/IS-456-2000/TABLES/Table-19/readme.md">README file</a>.
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="library2">
+        <h2>Maximum Shear Stress Values of Concrete (IS 456:2000 Table 20)</h2>
+        <p>
+            The <code>MaximumConcreteShearStrengthLookup</code> is designed to provide maximum shear stress values in accordance with IS 456:2000.
+        </p>
+
+        <span class="icon toggle" onclick="toggleContent('moreContent2', this)" title="See more">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </span>
+        <span class="icon" onclick="copyCDNLink('https://swas02.github.io/Civil-Engineering-Assets/IS-456-2000/TABLES/Table-20/Table-20-Maximum-Shear-Stress.js')" title="Copy CDN Link">
+            <i class="fa fa-link" aria-hidden="true"></i>
+        </span>
+
+        <div class="more-content" id="moreContent2">
+            <h2>Including the JavaScript File</h2>
+            <p>To use the calculator, add the following script tag:</p>
+            <pre><code>&lt;script src="https://swas02.github.io/Civil-Engineering-Assets/IS-456-2000/TABLES/Table-20/Table-20-Maximum-Shear-Stress.js"&gt;&lt;/script&gt;</code></pre>
+
+            <h2>How to Use the Calculator</h2>
+            <ol>
+                <li>
+                    <strong>Create an Instance:</strong>
+                    <pre><code>const maxCalculator = new MaximumConcreteShearStrengthLookup();</code></pre>
+                </li>
+                <li>
+                    <strong>Calculate Maximum Shear Stress:</strong>
+                    <pre><code>const result = maxCalculator.getShearStress("M25");</code></pre>
+                </li>
+                <li>
+                    <strong>Response Structure:</strong>
+                    <pre><code> {
+  "grade": "M25",
+  "max_shear_stress_mpa": 3.1,
+  "error": null
+}</code></pre>
+                </li>
+            </ol>
+
+            <h2>Accessing Detailed Documentation</h2>
+            <p>
+                For comprehensive instructions, refer to the
+                <a href="https://github.com/swas02/Civil-Engineering-Assets/blob/main/IS-456-2000/TABLES/Table-20/readme.md">README file</a>.
             </p>
         </div>
     </section>

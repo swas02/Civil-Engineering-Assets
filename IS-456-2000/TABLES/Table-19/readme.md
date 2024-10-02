@@ -1,12 +1,12 @@
-# Shear Strength Calculator Documentation
+# Concrete Shear Strength Lookup Documentation
 
 ## Overview
 
-The `ShearStrengthCalculator` is a JavaScript class designed to compute the design shear strength of concrete based on input parameters. It uses predefined shear strength data for various grades of concrete (M15 to M40) and supports interpolation between values.
+The `ConcreteShearStrengthLookup` is a JavaScript class designed to retrieve the design shear strength of concrete based on input parameters. It utilizes predefined shear strength data for various grades of concrete (M15 to M40) and supports interpolation between values.
 
 ## CDN Usage
 
-To use the `ShearStrengthCalculator` as a CDN, include the script in your HTML file:
+To use the `ConcreteShearStrengthLookup` as a CDN, include the script in your HTML file:
 
 ```html
 <script src="https://swas02.github.io/Civil-Engineering-Assets/IS-456-2000/TABLES/Table-19/Table-19-Design-Shear-Strength-of-Concrete.js"></script>
@@ -16,22 +16,22 @@ To use the `ShearStrengthCalculator` as a CDN, include the script in your HTML f
 
 ### 1. Create an Instance
 
-Create an instance of the `ShearStrengthCalculator` class:
+Create an instance of the `ConcreteShearStrengthLookup` class:
 
 ```javascript
-const calculator = new ShearStrengthCalculator();
+const lookup = new ConcreteShearStrengthLookup();
 ```
 
-### 2. Calculate Shear Strength
+### 2. Get Shear Strength
 
-Use the `getShearStrength` method to calculate the shear strength. This method requires two parameters:
+Use the `getShearStrength` method to retrieve the shear strength. This method requires two parameters:
 - `grade`: The grade of concrete (e.g., "M15", "M20", "M25", "M30", "M35", "M40").
 - `input100AsBdValue`: A numeric value representing the ratio \( \frac{100A_s}{bd} \).
 
 #### Example
 
 ```javascript
-const result = calculator.getShearStrength("M25", 1.0);
+const result = lookup.getShearStrength("M25", 1.0);
 console.log(result);
 ```
 
@@ -58,7 +58,7 @@ Here are some example success cases:
     {
       "grade": "M15",
       "the100AsBdValue": 1,
-      "value": 0.6
+      "value": 0.28
     }
     ```
 
@@ -83,7 +83,7 @@ Here are some example success cases:
        "grade": "M10",
        "the100AsBdValue": 1,
        "value": null,
-       "message": "Grade is below minimum available (M15)."
+       "message": "Invalid grade entered."
      }
      ```
 
@@ -134,7 +134,7 @@ Here are some example success cases:
        "grade": "M00",
        "the100AsBdValue": 1,
        "value": null,
-       "message": "Grade is below minimum available (M15)."
+       "message": "Invalid grade entered."
      }
      ```
 
@@ -143,26 +143,27 @@ Here are some example success cases:
 You can test the error cases using the following code snippet:
 
 ```javascript
-const calculator = new ShearStrengthCalculator();
+const lookup = new ConcreteShearStrengthLookup();
 
 // Test invalid grade below minimum
-console.log(calculator.getShearStrength("M10", 1));
+console.log(lookup.getShearStrength("M10", 1));
 
 // Test non-numeric 100As/bd value
-console.log(calculator.getShearStrength("M20", 'abc'));
+console.log(lookup.getShearStrength("M20", 'abc'));
 
 // Test 100As/bd value below minimum
-console.log(calculator.getShearStrength("M15", 0.1));
+console.log(lookup.getShearStrength("M15", 0.1));
 
 // Test invalid grade above maximum
-console.log(calculator.getShearStrength("M50", 1));
+console.log(lookup.getShearStrength("M50", 1));
 
 // Test invalid grade not in available list
-console.log(calculator.getShearStrength("M00", 1));
+console.log(lookup.getShearStrength("M00", 1));
 ```
 
 ### Conclusion
 
-The `ShearStrengthCalculator` class provides a straightforward method for determining the shear strength of concrete based on specific input values and grades. Ensure that you handle potential errors gracefully in your implementation, as outlined in the error cases.
+The `ConcreteShearStrengthLookup` class provides a reliable method for determining the shear strength of concrete based on specific input values and grades. Ensure that you handle potential errors gracefully in your implementation, as outlined in the error cases.
 
-This comprehensive documentation should help you effectively integrate and utilize the `ShearStrengthCalculator` in your projects!
+This comprehensive documentation should help you effectively integrate and utilize the `ConcreteShearStrengthLookup` in your projects!
+

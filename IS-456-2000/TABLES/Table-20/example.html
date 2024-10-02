@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shear Strength Calculator Example</title>
-    <script src="./Table-19-Design-Shear-Strength-of-Concrete.js"></script>
+    <title>Maximum Shear Stress Calculator</title>
+    <script src="../Table-20/Table-20-Maximum-Shear-Stress.js"></script>
     <style>
         body {
             background-color: #1e1e2f; /* Dark background */
@@ -18,7 +18,8 @@
 
         .container {
             max-width: 720px;
-            width: 100%;}
+            width: 100%;
+        }
 
         h1, h2 {
             color: #ff79c6; /* Pink for headings */
@@ -78,12 +79,12 @@
 <body>
 
 <div class="container">
-    <h1>Shear Strength Calculator</h1>
+    <h1>Maximum Shear Stress Calculator</h1>
     <hr>
 
-    <form id="shearStrengthForm">
-        <label for="grade">Grade of Concrete:</label>
-        <select id="grade" required>
+    <form id="shearStressForm">
+        <label for="gradeSelect">Select Grade:</label>
+        <select id="gradeSelect" required>
             <option value="">Select Grade</option>
             <option value="M15">M15</option>
             <option value="M20">M20</option>
@@ -92,11 +93,8 @@
             <option value="M35">M35</option>
             <option value="M40">M40</option>
         </select>
-        <br>
-        <label for="value">100As/bd Value:</label>
-        <input type="number" id="value" step="0.01" required>
         
-        <button type="submit">Calculate Shear Strength</button>
+        <button type="submit">Calculate Shear Stress</button>
     </form>
 
     <div class="resultDIV" style="display: none;">
@@ -108,15 +106,13 @@
 </div>
 
 <script>
-    const calculator = new ConcreteShearStrengthLookup();
+    const calculator = new MaximumConcreteShearStrengthLookup();
 
-    document.getElementById('shearStrengthForm').addEventListener('submit', function(event) {
+    document.getElementById('shearStressForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
 
-        const grade = document.getElementById('grade').value.trim();
-        const inputValue = parseFloat(document.getElementById('value').value);
-
-        const result = calculator.getShearStrength(grade, inputValue);
+        const grade = document.getElementById('gradeSelect').value.trim();
+        const result = calculator.getShearStress(grade);
         document.getElementById('result').textContent = JSON.stringify(result, null, 2);
         document.querySelector('.resultDIV').style.display = 'block';
     });

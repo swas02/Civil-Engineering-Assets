@@ -22,7 +22,7 @@ const designShearStrengthOfConcrete = [
     },
   ];
   
-  class ShearStrengthCalculator {
+  class ConcreteShearStrengthLookup {
     constructor() {
       this.data = designShearStrengthOfConcrete;
       this.grades = Object.keys(this.data[0].design_shear_strength_of_concrete.table["100_As/bd"][0]).filter(key => key !== "value");
