@@ -9,7 +9,7 @@ The `ShearStrengthCalculator` is a JavaScript class designed to compute the desi
 To use the `ShearStrengthCalculator` as a CDN, include the script in your HTML file:
 
 ```html
-<script src="https://path-to-your-cdn/shearStrengthCalculator.js"></script>
+<script src="https://swas02.github.io/Civil-Engineering-Assets/IS-456-2000/TABLES/Table-19/Table-19-Design-Shear-Strength-of-Concrete.js"></script>
 ```
 
 ## How to Use
