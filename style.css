@@ -1,95 +1,179 @@
+:root {
+    --background-color: #212121;
+    /* Dark background */
+    --text-color: #e0e0e0;
+    /* Light text */
+    --accent-color: #ff4081;
+    /* Vibrant pink accent */
+    --brand-color: rgba(108, 93, 211, 0.4);
+    /* Deep blue brand color */
+    --heading-color: #ffffff;
+    /* White headings */
+    --scrollbar-thumb-color: #555555;
+    /* Darker scrollbar thumb */
+    --scrollbar-track-color: #333333;
+    /* Darker scrollbar track */
+    --border-color: #2F2F2F;
+    /* Dark border */
+    --link-color: #ff4081;
+    /* Pink link color */
 
+}
+
+p {
+    font-size: 18px;
+}
 body {
     padding: 10px;
     font-family: 'Arial', sans-serif;
-    background-color: #454647; /* Darker background */
-    color: #e0e0e0; /* Light text */
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
-    font-size: 18px; /* Increased font size for better readability */
+    overflow-y: scroll;
+    /* Scrollable on y-axis */
+    overflow-x: hidden;
+    font-size: 18px;
+}
+
+h1,
+h2 {
+    color: var(--heading-color);
+    margin: 0 0 10px;
+    /* Add margin for spacing */
 }
 
 .section {
-    background-color: #343535; /* Darker section background */
+    background-color: var(--border-color);
     border-radius: 10px;
-    padding: 30px; /* More padding for better spacing */
-    padding-bottom: 60px;
-    margin-bottom: 30px;
+    padding: 20px;
+    /* Consistent padding */
+    margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    /* Use Flexbox */
+    flex-direction: column;
+    /* Column layout */
 }
 
-h1, h2 {
-    margin-top: 20px;
-    color: #81c784; /* Lighter green for headings */
-}
-
-pre {
-    background-color: #2a2a2a; /* Code block background */
-    padding: 15px;
+.pre {
+    background-color: var(--background-color);
+    padding: 10px;
     border-radius: 5px;
-    overflow-x: auto;
-    border-left: 4px solid #81c784; /* Highlighted border */
+    border-left: 4px solid var(--accent-color);
+    /* Accent border */
     margin: 10px 0;
-    font-size: 1.1em; /* Increased font size for code */
+    max-height: 150px;
+    /* Set max height for vertical scrolling */
+    overflow-y: auto;
+    /* Allow vertical scrolling */
+    overflow-x: auto;
+    /* Allow horizontal scrolling */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
 }
 
 code {
-    color: #ffcc00; /* Yellow for code */
+
+    padding: 10px;
+    display: block;
+    /* Ensures code occupies full width */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    overflow-x: auto;
 }
 
 a {
-    color: #81c784; /* Link color */
+    color: var(--link-color);
+    /* Link color */
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #66bb6a; /* Darker green on hover */
+    color: var(--accent-color);
+    /* Accent color on hover */
 }
 
 .more-content {
     display: none;
-    margin-top: 20px;
+    /* Hidden by default */
+    margin-top: 10px;
 }
 
 .show-more {
-    background-color: #81c784; /* Button color */
-    color: black;
+    background-color: var(--accent-color);
+    /* Accent button color */
+    color: var(--text-color);
+    /* Text color for button */
     border: none;
-    padding: 12px 20px; /* More padding for the button */
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
     display: block;
-    margin: 20px auto; /* Center button */
-    font-size: 1.2em; /* Increased button text size */
+    margin: 10px auto;
 }
 
 .show-more:hover {
-    background-color: #66bb6a; /* Darker green on hover */
+    background-color: var(--brand-color);
+    /* Brand color on hover */
+}
+
+.icon-container {
+    display: flex;
+    /* Use Flexbox for icons */
+    justify-content: flex-end;
+    /* Align icons to the right */
 }
 
 .icon {
     cursor: pointer;
     padding: 0 10px;
-    color: #81c784; /* Copy icon color */
+    color: var(--accent-color);
+    /* Accent color for icons */
     margin-left: 10px;
-    font-size: 1.5em; /* Increased icon size */
-    float: right; /* Float the icon to the right */
-    transition: transform 0.3s; /* Smooth rotation transition */
+    font-size: 1.5em;
+    /* Increased icon size */
+    transition: transform 0.3s;
+    /* Smooth rotation transition */
 }
 
 .icon.rotated {
-    transform: rotate(180deg); /* Rotate the icon */
+    transform: rotate(180deg);
+    /* Rotate the icon */
 }
 
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .section {
-        padding: 20px; /* Reduce padding on small screens */
-    }
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 2px;
+}
 
-    .show-more {
-        font-size: 1em; /* Smaller button text on mobile */
-    }
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track-color);
+}
+
+
+.highlight {
+    background-color: var(--brand-color);
+    /* Lighter accent background */
+    border-left: 4px solid var(--accent-color);
+    /* Subtle accent border */
+    padding: 5px;
+    /* Padding for spacing */
+    border-radius: 5px;
+    /* Slightly rounded corners */
+    color: var(--text-color);
+    /* Use text color variable for consistency */
+    font-weight: bold;
+    /* Bold text for emphasis */
+    margin: 10px 0;
+    /* Margin for spacing around the highlight */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    /* Softer shadow for depth */
 }
