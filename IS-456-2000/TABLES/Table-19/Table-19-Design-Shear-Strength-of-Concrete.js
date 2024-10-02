@@ -104,6 +104,6 @@ const designShearStrengthOfConcrete = [
   
   // Expose the class globally
   if (typeof window !== 'undefined') {
-    window.ShearStrengthCalculator = ShearStrengthCalculator;
+    window.ShearStrengthCalculator = ConcreteShearStrengthLookup;
   }
   
