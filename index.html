@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Engineering Assets</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="./IS-456-2000/TABLES/Table-19/Table-19-Design-Shear-Strength-of-Concrete.js"></script>
+    <script src="./IS-456-2000/TABLES/Table-19/readme.md"></script>
+    <style>
+        body {
+            padding: 10px;
+            font-family: 'Arial', sans-serif;
+            background-color: #454647; /* Darker background */
+            color: #e0e0e0; /* Light text */
+            line-height: 1.6;
+            font-size: 18px; /* Increased font size for better readability */
+        }
+
+        .section {
+            background-color: #343535; /* Darker section background */
+            border-radius: 10px;
+            padding: 30px; /* More padding for better spacing */
+            padding-bottom: 60px;
+            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1, h2 {
+            margin-top: 20px;
+            color: #81c784; /* Lighter green for headings */
+        }
+
+        pre {
+            background-color: #2a2a2a; /* Code block background */
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #81c784; /* Highlighted border */
+            margin: 10px 0;
+            font-size: 1.1em; /* Increased font size for code */
+        }
+
+        code {
+            color: #ffcc00; /* Yellow for code */
+        }
+
+        a {
+            color: #81c784; /* Link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #66bb6a; /* Darker green on hover */
+        }
+
+        .more-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .show-more {
+            background-color: #81c784; /* Button color */
+            color: black;
+            border: none;
+            padding: 12px 20px; /* More padding for the button */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto; /* Center button */
+            font-size: 1.2em; /* Increased button text size */
+        }
+
+        .show-more:hover {
+            background-color: #66bb6a; /* Darker green on hover */
+        }
+
+        .icon {
+            cursor: pointer;
+            padding: 0 10px;
+            color: #81c784; /* Copy icon color */
+            margin-left: 10px;
+            font-size: 1.5em; /* Increased icon size */
+            float: right; /* Float the icon to the right */
+            transition: transform 0.3s; /* Smooth rotation transition */
+        }
+
+        .icon.rotated {
+            transform: rotate(180deg); /* Rotate the icon */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .section {
+                padding: 20px; /* Reduce padding on small screens */
+            }
+
+            .show-more {
+                font-size: 1em; /* Smaller button text on mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Civil Engineering Assets</h1>
+    <hr>
+
+    <section class="section" id="library1">
+        <h2>Shear Strength Values of Concrete (IS 456:2000 Table 19)</h2>
+        <p>
+            The <code>ShearStrengthCalculator</code> is developed in accordance with IS 456:2000, the Indian Standard for Plain and Reinforced Concrete.
+        </p>
+        
+        <span class="icon toggle" onclick="toggleContent('moreContent1', this)" title="See more">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </span>
+        <span class="icon" onclick="copyCDNLink('https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css')" title="Copy CDN Link">
+            <i class="fa fa-link" aria-hidden="true"></i>
+        </span>
+
+        <div class="more-content" id="moreContent1">
+            <h2>Including the JavaScript File</h2>
+            <p>To use the calculator, add the following script tag:</p>
+            <pre><code>&lt;script src="./IS-456-2000/TABLES/Table-19/Table-19-Design-Shear-Strength-of-Concrete.js"&gt;&lt;/script&gt;</code></pre>
+
+            <h2>How to Use the Calculator</h2>
+            <ol>
+                <li>
+                    <strong>Create an Instance:</strong>
+                    <pre><code>const calculator = new ShearStrengthCalculator();</code></pre>
+                </li>
+                <li>
+                    <strong>Calculate Shear Strength:</strong>
+                    <pre><code>const result = calculator.getShearStrength("M25", 1.0);</code></pre>
+                </li>
+                <li>
+                    <strong>Response Structure:</strong>
+                    <pre><code> {
+  "grade": "M25",
+  "the100AsBdValue": 1.0,
+  "value": 0.64,
+  "message": null
+}</code></pre>
+                </li>
+            </ol>
+
+            <h2>Accessing Detailed Documentation</h2>
+            <p>
+                For comprehensive instructions, refer to the
+                <a href="./IS-456-2000/TABLES/Table-19/Table-19-Design-Shear-Strength-of-Concrete.md">README file</a>.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        function toggleContent(contentId, icon) {
+            const content = document.getElementById(contentId);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            icon.classList.toggle('rotated'); // Toggle the rotation class
+        }
+
+        function copyCDNLink(cdnLink) {
+            navigator.clipboard.writeText(cdnLink).then(() => {
+                alert("CDN link copied to clipboard!");
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</body>
+
+</html>
